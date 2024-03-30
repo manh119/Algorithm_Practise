@@ -137,8 +137,8 @@ public class BaseballElimination {
     private FlowNetwork getFlowNetwork(int t, int x, int s) {
         FlowNetwork flowNetwork = new FlowNetwork(t + 1);
 
-        // TODO : s -> game vertices
-        // TODO : game vertices -> team vertices
+        // s -> game vertices
+        // game vertices -> team vertices
         int gameVertice = nTeams;
         for (int i = 0; i < nTeams; i++) {
             for (int j = i + 1; j < nTeams; j++ ) {
