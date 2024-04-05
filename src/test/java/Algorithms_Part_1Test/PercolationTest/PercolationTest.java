@@ -83,6 +83,45 @@ public class PercolationTest {
     }
 
     @Test
+    public void test_isFull_input3_no1() {
+        In in = new In("percolation/input3-no1.txt");      // input file
+        int n = in.readInt();
+        Percolation perc = new Percolation(n);
+        while (!in.isEmpty()) {
+            int i = in.readInt();
+            int j = in.readInt();
+            perc.open(i, j);
+        }
+        Assertions.assertFalse(perc.isFull(3, 1));
+    }
+
+    @Test
+    public void test_isFull_input3_no2() {
+        In in = new In("percolation/input3-no2.txt");      // input file
+        int n = in.readInt();
+        Percolation perc = new Percolation(n);
+        while (!in.isEmpty()) {
+            int i = in.readInt();
+            int j = in.readInt();
+            perc.open(i, j);
+        }
+        Assertions.assertFalse(perc.isFull(3, 1));
+    }
+
+    @Test
+    public void test_isFull_input3_no3() {
+        In in = new In("percolation/input3-no3.txt");      // input file
+        int n = in.readInt();
+        Percolation perc = new Percolation(n);
+        while (!in.isEmpty()) {
+            int i = in.readInt();
+            int j = in.readInt();
+            perc.open(i, j);
+        }
+        Assertions.assertFalse(perc.isFull(3, 1));
+    }
+
+    @Test
     public void testPercolation_input4() {
         In in = new In("percolation/input4.txt");      // input file
         int n = in.readInt();
@@ -131,9 +170,9 @@ public class PercolationTest {
             int j = in.readInt();
             perc.open(i, j);
         }
-        Assertions.assertFalse(perc.isFull(n ,n - 1));
-        Assertions.assertTrue(perc.isFull(n - 1,n));
-        Assertions.assertTrue(perc.isFull(n,n));
+        Assertions.assertFalse(perc.isFull(n, n - 1));
+        Assertions.assertTrue(perc.isFull(n - 1, n));
+        Assertions.assertTrue(perc.isFull(n, n));
         Assertions.assertTrue(perc.percolates());
     }
 
