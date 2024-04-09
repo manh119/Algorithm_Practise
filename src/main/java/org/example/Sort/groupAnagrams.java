@@ -4,16 +4,24 @@ import java.util.*;
 
 public class groupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> map = new HashMap<>();
+        Map<Integer, List<String>> map = new HashMap<>();
 
         for (String s : strs) {
-            char[] sortedS = s.toCharArray();
-            Arrays.sort(sortedS);
-            map.putIfAbsent(String.copyValueOf(sortedS), new ArrayList<>());
-            map.get(String.copyValueOf(sortedS)).add(s);
+            int uniqueInt = uniqueInt(s.toCharArray());
+            map.putIfAbsent(uniqueInt, new ArrayList<>());
+            map.get(uniqueInt).add(s);
         }
 
         return new ArrayList<>(map.values());
+    }
+
+    // gen unique integer by frequency in char
+    private int uniqueInt(char[] str) {
+        int[] freq = new int[26];
+        for (int i = 0; i < str.length; i++) {
+            freq[str[i] - 'a']++;
+        }
+        return Arrays.hashCode(freq);
     }
 
 
